@@ -5,23 +5,21 @@
         <!-- Celsius to Fahrenheit / Fahrenheit to Celsius -->
         <h3>Celsius ↔ Fahrenheit</h3>
         <input type="number" id="celsius" placeholder="Enter Celsius">
-        <button onclick="convertCelsiusToFahrenheit()">Convert to Fahrenheit</button>
+        <button type="button" onclick="convertCelsiusToFahrenheit()">Convert to Fahrenheit</button>
         <input type="number" id="fahrenheit" placeholder="Enter Fahrenheit">
-        <button onclick="convertFahrenheitToCelsius()">Convert to Celsius</button>
-        
+        <button type="button" onclick="convertFahrenheitToCelsius()">Convert to Celsius</button>
+        <div id="resultCelsiusFahrenheit"></div>
         <br>
 
         <!-- Meters to Feet / Feet to Meters -->
         <h3>Meters ↔ Feet</h3>
         <input type="number" id="meters" placeholder="Enter Meters">
-        <button onclick="convertMetersToFeet()">Convert to Feet</button>
+        <button type="button" onclick="convertMetersToFeet()">Convert to Feet</button>
         <input type="number" id="feet" placeholder="Enter Feet">
-        <button onclick="convertFeetToMeters()">Convert to Meters</button>
+        <button type="button" onclick="convertFeetToMeters()">Convert to Meters</button>
+        <div id="resultMetersFeet"></div>
 
-        <p><a href="CONVERSION.html">Back to Home Page</a></p>
-
-        <div class="result" id="result"></div>
-
+        <p><a href="index.html">Back to Home Page</a></p>
 
     </div>
 
@@ -31,9 +29,9 @@
             let celsius = parseFloat(document.getElementById('celsius').value);
             if (!isNaN(celsius)) {
                 let fahrenheit = (celsius * 9/5) + 32;
-                document.getElementById('result').innerHTML = `${celsius}°C is ${fahrenheit.toFixed(2)}°F`;
+                document.getElementById('resultCelsiusFahrenheit').innerHTML = `${celsius}°C is ${fahrenheit.toFixed(2)}°F`;
             } else {
-                document.getElementById('result').innerHTML = "Please enter a valid Celsius value.";
+                document.getElementById('resultCelsiusFahrenheit').innerHTML = "Please enter a valid Celsius value.";
             }
         }
 
@@ -42,9 +40,9 @@
             let fahrenheit = parseFloat(document.getElementById('fahrenheit').value);
             if (!isNaN(fahrenheit)) {
                 let celsius = (fahrenheit - 32) * 5/9;
-                document.getElementById('result').innerHTML = `${fahrenheit}°F is ${celsius.toFixed(2)}°C`;
+                document.getElementById('resultCelsiusFahrenheit').innerHTML = `${fahrenheit}°F is ${celsius.toFixed(2)}°C`;
             } else {
-                document.getElementById('result').innerHTML = "Please enter a valid Fahrenheit value.";
+                document.getElementById('resultCelsiusFahrenheit').innerHTML = "Please enter a valid Fahrenheit value.";
             }
         }
 
@@ -53,9 +51,9 @@
             let meters = parseFloat(document.getElementById('meters').value);
             if (!isNaN(meters)) {
                 let feet = meters * 3.28084;
-                document.getElementById('result').innerHTML = `${meters} meters is ${feet.toFixed(2)} feet`;
+                document.getElementById('resultMetersFeet').innerHTML = `${meters} meters is ${feet.toFixed(2)} feet`;
             } else {
-                document.getElementById('result').innerHTML = "Please enter a valid Meters value.";
+                document.getElementById('resultMetersFeet').innerHTML = "Please enter a valid Meters value.";
             }
         }
 
@@ -64,9 +62,9 @@
             let feet = parseFloat(document.getElementById('feet').value);
             if (!isNaN(feet)) {
                 let meters = feet / 3.28084;
-                document.getElementById('result').innerHTML = `${feet} feet is ${meters.toFixed(2)} meters`;
+                document.getElementById('resultMetersFeet').innerHTML = `${feet} feet is ${meters.toFixed(2)} meters`;
             } else {
-                document.getElementById('result').innerHTML = "Please enter a valid Feet value.";
+                document.getElementById('resultMetersFeet').innerHTML = "Please enter a valid Feet value.";
             }
         }
     </script>
