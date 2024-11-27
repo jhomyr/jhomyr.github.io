@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorial, Sum, and Average of First N Natural Numbers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        label {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            display: block;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            font-size: 1.1em;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            font-size: 1.1em;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Factorial, Sum, and Average of First N Natural Numbers</h1>
+
+        <label for="n">Enter the value of N:</label>
+        <input type="number" id="n" placeholder="Enter N" min="1">
+
+        <button onclick="calculate()">Calculate</button>
+
+        <p><a href="index.html">Back to Home Page</a></p>
+
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function calculate() {
+            const n = parseInt(document.getElementById('n').value);
+            let factorial = 1;
+            let sum = 0;
+            let average = 0;
+            let resultText = '';
+
+            // Validation for input
+            if (isNaN(n) || n < 1) {
+                resultText = "Please enter a valid positive integer for N.";
+            } else {
+                // Factorial using While Loop
+                let i = 1;
+                while (i <= n) {
+                    factorial *= i;
+                    i++;
+                }
+
+                // Sum using Do While Loop
+                let j = 1;
+                do {
+                    sum += j;
+                    j++;
+                } while (j <= n);
+
+                // Average using For Loop
+                for (let k = 1; k <= n; k++) {
+                    average += k;
+                }
+                average /= n;
+
+                // Display results
+                resultText = `
+                    <p>For N = ${n}, the results are:</p>
+                    <p><strong>Factorial:</strong> ${factorial}</p>
+                    <p><strong>Sum:</strong> ${sum}</p>
+                    <p><strong>Average:</strong> ${average.toFixed(2)}</p>
+                `;
+            }
+
+            // Show the result
+            document.getElementById('result').innerHTML = resultText;
+        }
+    </script>
+
+</body>
+</html>
