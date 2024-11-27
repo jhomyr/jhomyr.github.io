@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Payroll Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        label {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            display: block;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            font-size: 1.1em;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            font-size: 1.1em;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Simple Payroll Calculator</h1>
+
+        <label for="hoursWorked">Enter Total Hours Worked:</label>
+        <input type="number" id="hoursWorked" placeholder="Enter hours worked" min="0">
+
+        <label for="hourlyRate">Enter Hourly Rate (in PHP):</label>
+        <input type="number" id="hourlyRate" placeholder="Enter hourly rate" min="0">
+
+        <label for="deductions">Enter Deductions (in PHP):</label>
+        <input type="number" id="deductions" placeholder="Enter deductions" min="0">
+
+        <button onclick="calculatePayroll()">Calculate Payroll</button>
+
+         <p><a href="index.html">Back to Home Page</a></p>
+
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function calculatePayroll() {
+            const hoursWorked = parseFloat(document.getElementById('hoursWorked').value);
+            const hourlyRate = parseFloat(document.getElementById('hourlyRate').value);
+            const deductions = parseFloat(document.getElementById('deductions').value);
+
+            let resultText = '';
+
+            // Check if input values are valid
+            if (isNaN(hoursWorked) || isNaN(hourlyRate) || isNaN(deductions) || hoursWorked < 0 || hourlyRate < 0 || deductions < 0) {
+                resultText = "Please enter valid values for hours worked, hourly rate, and deductions.";
+            } else {
+                // Calculate gross salary
+                const grossSalary = hoursWorked * hourlyRate;
+
+                // Calculate net salary (gross salary minus deductions)
+                const netSalary = grossSalary - deductions;
+
+                // Display results
+                resultText = `
+                    <p><strong>Total Hours Worked:</strong> ${hoursWorked} hours</p>
+                    <p><strong>Hourly Rate:</strong> ₱${hourlyRate.toFixed(2)}</p>
+                    <p><strong>Gross Salary:</strong> ₱${grossSalary.toFixed(2)}</p>
+                    <p><strong>Deductions:</strong> ₱${deductions.toFixed(2)}</p>
+                    <p><strong>Net Salary (After Deductions):</strong> ₱${netSalary.toFixed(2)}</p>
+                `;
+            }
+
+            // Display the result
+            document.getElementById('result').innerHTML = resultText;
+        }
+    </script>
+
+</body>
+</html>
