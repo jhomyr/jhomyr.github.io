@@ -82,19 +82,19 @@
                 // Example tax brackets for the Philippines (based on progressive tax rates)
                 if (income <= 250000) {
                     taxAmount = 0; // No tax for income up to ₱250,000
-                    resultText = `Your income is ₱${income.toLocaleString()}. You don't pay any tax.`;
+                    resultText = `Your income is ₱₱{income.toLocaleString()}. You don't pay any tax.`;
                 } else if (income <= 400000) {
                     taxAmount = (income - 250000) * 0.2;
-                    resultText = `Your income is ₱${income.toLocaleString()}. Tax to pay: ₱${taxAmount.toFixed(2).toLocaleString()}`;
+                    resultText = `Your income is ₱₱{income.toLocaleString()}. Tax to pay: ₱₱{taxAmount.toFixed(2).toLocaleString()}`;
                 } else if (income <= 800000) {
                     taxAmount = (150000 * 0.2) + (income - 400000) * 0.25;
-                    resultText = `Your income is ₱${income.toLocaleString()}. Tax to pay: ₱${taxAmount.toFixed(2).toLocaleString()}`;
+                    resultText = `Your income is ₱₱{income.toLocaleString()}. Tax to pay: ₱₱{taxAmount.toFixed(2).toLocaleString()}`;
                 } else if (income <= 2000000) {
                     taxAmount = (150000 * 0.2) + (400000 * 0.25) + (income - 800000) * 0.3;
-                    resultText = `Your income is ₱${income.toLocaleString()}. Tax to pay: ₱${taxAmount.toFixed(2).toLocaleString()}`;
+                    resultText = `Your income is ₱₱{income.toLocaleString()}. Tax to pay: ₱₱{taxAmount.toFixed(2).toLocaleString()}`;
                 } else {
                     taxAmount = (150000 * 0.2) + (400000 * 0.25) + (1200000 * 0.3) + (income - 2000000) * 0.32;
-                    resultText = `Your income is ₱${income.toLocaleString()}. Tax to pay: ₱${taxAmount.toFixed(2).toLocaleString()}`;
+                    resultText = `Your income is ₱₱{income.toLocaleString()}. Tax to pay: ₱₱{taxAmount.toFixed(2).toLocaleString()}`;
                 }
             }
 
