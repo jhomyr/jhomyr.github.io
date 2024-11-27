@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Income Tax Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        label {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            display: block;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            font-size: 1.1em;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            font-size: 1.1em;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Income Tax Calculator</h1>
+
+        <label for="income">Enter Your Annual Income:</label>
+        <input type="number" id="income" placeholder="Enter income" min="0">
+
+        <button onclick="calculateTax()">Calculate Tax</button>
+
+        <p><a href="index.html">Back to Home Page</a></p>
+
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function calculateTax() {
+            const income = parseFloat(document.getElementById('income').value);
+            let taxAmount = 0;
+            let resultText = '';
+
+            if (isNaN(income) || income < 0) {
+                resultText = "Please enter a valid income.";
+            } else {
+                // Example tax brackets
+                if (income <= 10000) {
+                    taxAmount = 0;
+                    resultText = `Your income is $${income}. You don't pay any tax.`;
+                } else if (income <= 30000) {
+                    taxAmount = (income - 10000) * 0.1;
+                    resultText = `Your income is $${income}. Tax to pay: $${taxAmount.toFixed(2)}`;
+                } else if (income <= 100000) {
+                    taxAmount = (20000 * 0.1) + (income - 30000) * 0.2;
+                    resultText = `Your income is $${income}. Tax to pay: $${taxAmount.toFixed(2)}`;
+                } else {
+                    taxAmount = (20000 * 0.1) + (70000 * 0.2) + (income - 100000) * 0.3;
+                    resultText = `Your income is $${income}. Tax to pay: $${taxAmount.toFixed(2)}`;
+                }
+            }
+
+            document.getElementById('result').innerHTML = resultText;
+        }
+    </script>
+
+</body>
+</html>
