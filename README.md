@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Introduction to Computing Website</title>
@@ -65,10 +64,10 @@
 <!-- Left Navbar -->
 <div class="w3-bar w3-black w3-card">
     <a href="#" class="w3-bar-item w3-button w3-padding-large">HOME</a>
-    <a href="Add2numbersV1.html" class="w3-bar-item w3-button w3-padding-large">Add 2 Numbers version #1 - Using Prompts</a>
-    <a href="GradeComputationV1.html" class="w3-bar-item w3-button w3-padding-large">Grade Computation version #1 - Using if else statements</a>
-    <a href="GradeComputationV2.html" class="w3-bar-item w3-button w3-padding-large">Grade Computation version #2 - Classifying letter grade using switch statement</a>
-    <a href="Add2numbersV4.html" class="w3-bar-item w3-button w3-padding-large">Add 2 Numbers with Button Event Listener</a>
+    <a href="Add2numbersV1.html" class="w3-bar-item w3-button w3-padding-large">Conversion (Celsius to Fahrenheit, Fahrenheit to Celsius, Meters to Feet, Feet to Meters)</a>
+    <a href="GradeComputationV1.html" class="w3-bar-item w3-button w3-padding-large">Income Tax Calculator</a>
+    <a href="GradeComputationV2.html" class="w3-bar-item w3-button w3-padding-large">Factorial (While Loop), Sum (Do While Loop) and Average (For Loop) of First N Natural Numbers</a>
+    <a href="Add2numbersV4.html" class="w3-bar-item w3-button w3-padding-large">Simple Payroll</a>
    
 </div>
 
