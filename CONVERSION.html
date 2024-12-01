@@ -63,7 +63,7 @@
         h2 {
             font-size: 36px;
             font-family: 'Source Code Pro', monospace;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             color: #2E3A59;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -96,12 +96,13 @@
             padding: 15px;
             font-size: 16px;
             margin: 10px 0;
-            width: 80%;
-            max-width: 280px;
+            width: 100%;
+            max-width: 350px;
             border: 2px solid #ccc;
             border-radius: 8px;
             background-color: #f9f9f9;
             transition: all 0.3s ease-in-out;
+            margin-bottom: 20px;
         }
 
         input[type="number"]:focus {
@@ -156,6 +157,8 @@
             font-size: 16px;
             font-weight: 500;
             transition: color 0.3s ease-in-out;
+            display: block;
+            margin-top: 30px;
         }
 
         p a:hover {
@@ -166,6 +169,7 @@
         @media (max-width: 600px) {
             .container {
                 padding: 20px;
+                margin: 10px;
             }
 
             h2 {
@@ -174,6 +178,11 @@
 
             input[type="number"], button {
                 width: 90%;
+                max-width: 100%;
+            }
+
+            button {
+                width: 100%;
             }
         }
 
