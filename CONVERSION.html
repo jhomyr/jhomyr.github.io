@@ -96,24 +96,31 @@
             box-shadow: 0 0 8px rgba(110, 123, 255, 0.4);
         }
 
-        /* Button styling */
+        /* Enhanced Button styling */
         button {
-            background-color: #6e7bff; /* Smooth blue */
+            background-color: #ff5b5b; /* Bright, noticeable red */
             color: white;
-            padding: 14px 28px;
-            font-size: 16px;
+            padding: 16px 32px;
+            font-size: 18px;
+            font-weight: bold;
             border: none;
             border-radius: 12px;
             cursor: pointer;
             margin: 20px 0;
-            transition: transform 0.2s ease, background-color 0.3s ease;
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
             width: 80%;
             max-width: 350px;
         }
 
         button:hover {
-            background-color: #4a56e2; /* Darker blue on hover */
-            transform: scale(1.05); /* Slight zoom effect on hover */
+            background-color: #e14b4b; /* Slightly darker red on hover */
+            transform: scale(1.05); /* Zoom effect */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Subtle shadow on hover */
+        }
+
+        button:active {
+            background-color: #d14040; /* Even darker red when clicked */
+            transform: scale(0.98); /* Slight shrink effect on click */
         }
 
         /* Result Display */
