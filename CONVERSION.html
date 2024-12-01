@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Conversion Tool</title>
 
-    <!-- Google Fonts for a modern and professional look -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Source+Code+Pro&display=swap" rel="stylesheet">
-    
+    <!-- Font Style -->
     <style>
         /* Global Reset */
         * {
@@ -17,42 +15,35 @@
         }
 
         body {
-            font-family: 'Roboto', sans-serif;
-            background: linear-gradient(135deg, #f1f1f1, #d1e0e0); /* Smooth gradient background */
-            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background: #f2f2f7; /* Light background with a touch of Apple’s greyish tone */
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            padding: 20px;
             overflow: hidden;
+            padding: 20px;
         }
 
-        /* Main container style */
+        /* Main container styling for floating effect */
         .container {
-            background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Deep shadow for a futuristic look */
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1); /* Soft shadow for floating effect */
             padding: 40px;
             width: 100%;
-            max-width: 800px;
+            max-width: 600px;
             text-align: center;
-            transition: all 0.3s ease-in-out;
-            transform: translateY(-20px); /* Slightly raised effect */
-            animation: fadeIn 1s ease-out; /* Fade-in effect */
+            transform: translateY(-20px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeIn 1s ease-out;
         }
 
-        /* Hover effect to raise the container */
-        .container:hover {
-            transform: translateY(0);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Animation for smooth fade-in */
+        /* Animation for fade-in effect */
         @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(-30px);
+                transform: translateY(-20px);
             }
             to {
                 opacity: 1;
@@ -60,112 +51,89 @@
             }
         }
 
+        /* Hover effect for the floating card */
+        .container:hover {
+            transform: translateY(0);
+            box-shadow: 0 24px 48px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+        }
+
         h2 {
-            font-size: 36px;
-            font-family: 'Source Code Pro', monospace;
+            font-size: 30px;
+            color: #333;
+            font-weight: 600;
             margin-bottom: 40px;
-            color: #2E3A59;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             text-transform: uppercase;
         }
 
         h3 {
-            font-size: 24px;
+            font-size: 22px;
+            color: #333;
             margin-bottom: 20px;
-            color: #2E3A59;
             font-weight: 500;
-            position: relative;
-            display: inline-block;
-            padding-bottom: 10px;
         }
 
-        h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, #4A90E2, #A2C0E8);
-            opacity: 0.6;
-            animation: slideIn 1.5s ease-in-out infinite alternate;
-        }
-
-        /* Input fields styling */
+        /* Input field styling */
         input[type="number"] {
-            padding: 15px;
-            font-size: 16px;
+            padding: 16px;
+            font-size: 18px;
             margin: 10px 0;
             width: 100%;
             max-width: 350px;
-            border: 2px solid #ccc;
-            border-radius: 8px;
-            background-color: #f9f9f9;
+            border: 2px solid #d1d1d6;
+            border-radius: 10px;
+            background-color: #f7f7f7;
             transition: all 0.3s ease-in-out;
             margin-bottom: 20px;
         }
 
         input[type="number"]:focus {
             outline: none;
-            border-color: #4A90E2; /* Blue border when focused */
-            background-color: #e1f5fe;
-            box-shadow: 0 0 10px rgba(74, 144, 226, 0.3);
+            border-color: #007aff; /* Apple’s blue color when focused */
+            background-color: #e1f0ff;
+            box-shadow: 0 0 10px rgba(0, 122, 255, 0.2);
         }
 
         /* Button styling */
         button {
-            background: linear-gradient(45deg, #4A90E2, #357ABD); /* Dynamic blue gradient */
-            color: #fff;
-            padding: 15px 30px;
+            background-color: #007aff; /* Apple blue color */
+            color: white;
+            padding: 14px 28px;
             font-size: 16px;
             border: none;
-            border-radius: 8px;
+            border-radius: 12px;
             cursor: pointer;
-            margin: 15px 0;
-            transition: all 0.3s ease-in-out, transform 0.2s ease-in-out;
+            margin: 20px 0;
+            transition: transform 0.2s ease, background-color 0.3s ease;
         }
 
         button:hover {
-            background: linear-gradient(45deg, #357ABD, #4A90E2);
-            transform: scale(1.05); /* Slightly enlarge the button */
+            background-color: #0051d4; /* Darker blue when hovered */
+            transform: scale(1.05); /* Slight zoom effect on hover */
         }
 
         /* Result Display */
         #resultCelsiusFahrenheit, #resultMetersFeet {
             font-size: 18px;
             font-weight: 500;
+            color: #007aff;
             margin-top: 20px;
-            color: #4A90E2;
-            animation: fadeInResult 1s ease-out;
-        }
-
-        @keyframes fadeInResult {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         /* Link back to the home page */
         p a {
-            color: #357ABD;
+            color: #007aff;
             text-decoration: none;
             font-size: 16px;
             font-weight: 500;
-            transition: color 0.3s ease-in-out;
-            display: block;
-            margin-top: 30px;
+            transition: color 0.3s ease;
         }
 
         p a:hover {
-            color: #4A90E2;
+            color: #0051d4; /* Darker blue on hover */
         }
 
-        /* Media query for mobile devices */
+        /* Mobile Optimization */
         @media (max-width: 600px) {
             .container {
                 padding: 20px;
@@ -173,7 +141,7 @@
             }
 
             h2 {
-                font-size: 28px;
+                font-size: 24px;
             }
 
             input[type="number"], button {
@@ -185,7 +153,6 @@
                 width: 100%;
             }
         }
-
     </style>
 </head>
 <body>
