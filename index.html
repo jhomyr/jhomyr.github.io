@@ -3,20 +3,18 @@
     <title>Introduction to Computing Website</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&family=Roboto:wght@400;500&display=swap" rel="stylesheet"> <!-- Futuristic Fonts -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Helvetica:wght@400;500&display=swap" rel="stylesheet"> <!-- Apple-like fonts -->
     <style>
         /* General Body Styles */
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Helvetica', 'Roboto', sans-serif;
             margin: 0;
-            background: linear-gradient(45deg, #ff6ec7, #7451f8); /* Futuristic gradient background */
-            color: white;
+            background: #f5f5f7; /* Light grey background like Apple's */
+            color: #1c1c1e; /* Dark grey text */
             height: 100vh;
-            overflow: hidden;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
+            justify-content: center;
             align-items: center;
             padding: 0 20px;
         }
@@ -24,78 +22,75 @@
         /* Navbar Styles */
         .w3-bar {
             width: 100%;
-            padding: 20px 0;
-            background: rgba(0, 0, 0, 0.6); /* Slightly darker for better contrast */
+            padding: 15px 0;
+            background: #ffffff; /* Clean white background for navbar */
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
             display: flex;
             justify-content: center;
             align-items: center;
-            position: absolute;
+            position: fixed;
             top: 0;
             z-index: 100;
-            backdrop-filter: blur(10px); /* Frosted glass effect */
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
         }
 
         .w3-bar a {
-            color: white;
-            padding: 15px 25px;
+            color: #1c1c1e; /* Dark grey text for links */
+            padding: 12px 20px;
             text-decoration: none;
             font-size: 16px;
             text-transform: uppercase;
+            font-weight: 500;
             letter-spacing: 1px;
-            font-family: 'Orbitron', sans-serif; /* Futuristic font */
-            transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
-            border-radius: 4px;
-            margin: 0 10px;
+            transition: all 0.3s ease;
+            margin: 0 15px;
         }
 
         .w3-bar a:hover {
-            background-color: #7451f8;
-            transform: scale(1.1); /* Slight zoom effect on hover */
+            background-color: #0071e3; /* Apple blue for hover */
+            color: white; /* White text on hover */
+            border-radius: 25px; /* Smooth rounded button on hover */
         }
 
         /* Content Section */
         .content {
-            padding-top: 120px;
+            padding-top: 100px;
             text-align: center;
-            width: 100%;
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto;
             animation: fadeIn 1s ease-out; /* Smooth fade-in animation */
         }
 
         .content h1 {
             font-size: 48px;
-            font-family: 'Orbitron', sans-serif;
-            letter-spacing: 2px;
             margin-bottom: 20px;
-            text-transform: uppercase;
+            color: #1c1c1e; /* Dark grey for headings */
+            font-weight: 600;
         }
 
         .content p {
             font-size: 18px;
             line-height: 1.6;
             letter-spacing: 0.5px;
-            color: #f0f0f0;
+            color: #636366; /* Medium grey text for paragraphs */
             font-family: 'Roboto', sans-serif;
+            margin-bottom: 40px;
         }
 
         /* Buttons Styling */
         .cta-button {
-            background-color: #7451f8;
+            background-color: #0071e3; /* Apple blue background */
             color: white;
             font-size: 18px;
             padding: 14px 28px;
             text-decoration: none;
-            border-radius: 8px;
-            margin-top: 40px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
             display: inline-block;
-            transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
         .cta-button:hover {
-            background-color: #ff6ec7;
-            transform: scale(1.1);
+            background-color: #005bb5; /* Slightly darker blue on hover */
+            transform: translateY(-3px); /* Subtle lift effect */
         }
 
         /* Animation for smooth fade-in */
@@ -134,7 +129,7 @@
 
 <!-- Navbar -->
 <div class="w3-bar">
-    <a href="#" class="w3-bar-item w3-button">HOME</a>
+    <a href="#" class="w3-bar-item w3-button">Home</a>
     <a href="CONVERSION.html" class="w3-bar-item w3-button">Conversion</a>
     <a href="INCOMETAX.html" class="w3-bar-item w3-button">Income Tax</a>
     <a href="FACTORIAL.html" class="w3-bar-item w3-button">Factorial</a>
@@ -143,9 +138,9 @@
 
 <!-- Main Content Section -->
 <div class="content">
-    <h1>Welcome to My Futuristic Website</h1>
-    <p>Good day sir, I hope you enjoy my website and thank you for teaching us this semester. We will miss you. God bless. Personal website powered by GitHub for publishing programs.</p>
-    <a href="CONVERSION.html" class="cta-button">Get Started with Conversion Tools</a> <!-- Call to Action button -->
+    <h1>Welcome to My Website</h1>
+    <p>Thank you for visiting my site. I hope you enjoy your time here. My site is powered by GitHub and showcases various projects, including programs on Conversion, Income Tax, Factorial, and Payroll Management.</p>
+    <a href="CONVERSION.html" class="cta-button">Start Using the Conversion Tools</a> <!-- Call to Action button -->
 </div>
 
 </body>
