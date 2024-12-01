@@ -3,55 +3,101 @@
     <title>Introduction to Computing Website</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&family=Roboto:wght@400;500&display=swap" rel="stylesheet"> <!-- Futuristic Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
+        /* General Body Styles */
         body {
-            font-family: "Lato", sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
-            background-color: #ffcccb; /* Faded pink background */
+            background: linear-gradient(45deg, #ff6ec7, #7451f8); /* Futuristic gradient background */
+            color: white;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
         }
 
-        /* Navbar at the top center with blue background */
+        /* Navbar Styles */
         .w3-bar {
             width: 100%;
-            background-color: #1E90FF; /* Blue background for navbar */
-            padding: 10px 0;
+            padding: 20px 0;
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent navbar */
             display: flex;
-            justify-content: center; /* Center the navbar items horizontally */
+            justify-content: center;
+            align-items: center;
             position: absolute;
             top: 0;
             z-index: 100;
+            backdrop-filter: blur(10px); /* Frosted glass effect */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
         }
 
         .w3-bar a {
-            color: white; /* White text */
-            padding: 10px 15px;
+            color: white;
+            padding: 15px 25px;
             text-decoration: none;
-            display: block;
-            text-align: center;
-            margin: 0 10px; /* Space between navbar items */
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Orbitron', sans-serif; /* Futuristic font */
+            transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
         }
 
         .w3-bar a:hover {
-            background-color: #575757; /* Darker blue on hover */
+            background-color: #7451f8;
+            transform: scale(1.1); /* Slight zoom effect on hover */
         }
 
-        /* Content area */
+        /* Content Section */
         .content {
-            padding: 80px 20px 20px 20px; /* Add padding at the top to make space for the navbar */
+            padding-top: 80px;
             text-align: center;
+            width: 90%;
+            max-width: 800px;
+            animation: fadeIn 1s ease-out; /* Smooth fade-in animation */
         }
 
-        /* For mobile devices (screen size < 600px) */
+        .content h1 {
+            font-size: 48px;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            font-size: 18px;
+            line-height: 1.6;
+            letter-spacing: 0.5px;
+            color: #f0f0f0;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        /* Animation for smooth fade-in */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Design */
         @media screen and (max-width: 600px) {
             .w3-bar a {
-                padding: 10px 5px; /* Adjust padding for smaller screens */
-                font-size: 14px; /* Adjust font size for smaller screens */
+                font-size: 14px;
+                padding: 10px 15px;
             }
-            .content {
-                padding-top: 100px; /* Increase padding at the top for mobile */
+
+            .content h1 {
+                font-size: 36px;
+            }
+
+            .content p {
+                font-size: 16px;
             }
         }
     </style>
@@ -59,18 +105,18 @@
 <body>
 
 <!-- Navbar -->
-<div class="w3-bar w3-card">
-    <a href="#" class="w3-bar-item w3-button w3-padding-large">HOME</a>
-    <a href="CONVERSION.html" class="w3-bar-item w3-button w3-padding-large">Conversion (Celsius to Fahrenheit, Fahrenheit to Celsius, Meters to Feet, Feet to Meters)</a>
-    <a href="INCOMETAX.html" class="w3-bar-item w3-button w3-padding-large">Income Tax Calculator</a>
-    <a href="FACTORIAL.html" class="w3-bar-item w3-button w3-padding-large">Factorial (While Loop), Sum (Do While Loop) and Average (For Loop) of First N Natural Numbers</a>
-    <a href="SIMPLEPAYROLL.html" class="w3-bar-item w3-button w3-padding-large">Simple Payroll</a>
+<div class="w3-bar">
+    <a href="#" class="w3-bar-item w3-button">HOME</a>
+    <a href="CONVERSION.html" class="w3-bar-item w3-button">Conversion</a>
+    <a href="INCOMETAX.html" class="w3-bar-item w3-button">Income Tax</a>
+    <a href="FACTORIAL.html" class="w3-bar-item w3-button">Factorial</a>
+    <a href="SIMPLEPAYROLL.html" class="w3-bar-item w3-button">Simple Payroll</a>
 </div>
 
 <!-- Main Content Section -->
 <div class="content">
-    <h1>Welcome to My Website</h1>
-    <p>Good day sir, I hope you enjoy my website and thank you for teaching us this sem, we will miss you po. God bless. Personal Website (using github.com for Publishing Programs)</p>
+    <h1>Welcome to My Futuristic Website</h1>
+    <p>Good day sir, I hope you enjoy my website and thank you for teaching us this semester. We will miss you. God bless. Personal website powered by GitHub for publishing programs.</p>
 </div>
 
 </body>
