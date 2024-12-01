@@ -76,6 +76,28 @@
             margin-bottom: 40px;
         }
 
+        /* Facebook Link and Picture Styles */
+        .facebook-link {
+            font-size: 18px;
+            color: #0071e3; /* Apple blue */
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .facebook-link:hover {
+            color: #005bb5; /* Darker blue on hover */
+            text-decoration: underline;
+        }
+
+        .profile-picture {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin-top: 20px;
+            border: 5px solid #fff; /* White border for profile picture */
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1); /* Soft shadow */
+        }
+
         /* Buttons Styling */
         .cta-button {
             background-color: #0071e3; /* Apple blue background */
@@ -140,7 +162,15 @@
 <div class="content">
     <h1>Welcome to My Website</h1>
     <p>Thank you for visiting my site. I hope you enjoy your time here. My site is powered by GitHub and showcases various projects, including programs on Conversion, Income Tax, Factorial, and Payroll Management.</p>
-    <a href="CONVERSION.html" class="cta-button">Start Using the Conversion Tools</a> <!-- Call to Action button -->
+    
+    <!-- Your Profile Picture -->
+    <img src="your-image-url.jpg" alt="Your Profile Picture" class="profile-picture">
+
+    <!-- Facebook Link -->
+    <p>Connect with me on <a href="https://www.facebook.com/jhomyr.palmera.300" class="facebook-link" target="_blank">Facebook</a></p>
+    
+    <!-- Call-to-Action Button -->
+    <a href="CONVERSION.html" class="cta-button">Start Using the Conversion Tools</a>
 </div>
 
 </body>
