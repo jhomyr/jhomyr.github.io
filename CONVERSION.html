@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Conversion Tool</title>
 
-    <!-- Google Fonts for modern aesthetics -->
+    <!-- Google Fonts for a modern and professional look -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Source+Code+Pro&display=swap" rel="stylesheet">
-
+    
     <style>
         /* Global Reset */
         * {
@@ -30,21 +30,22 @@
 
         /* Main container style */
         .container {
-            background: #ffffff;
+            background: #fff;
             border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Deep shadow for futuristic look */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Deep shadow for a futuristic look */
             padding: 40px;
             width: 100%;
-            max-width: 900px;
+            max-width: 800px;
             text-align: center;
-            transition: all 0.5s ease-in-out;
-            transform: translateY(-20px); /* Subtle hover effect to raise the container */
-            animation: fadeIn 1s ease-out; /* Fade in animation */
+            transition: all 0.3s ease-in-out;
+            transform: translateY(-20px); /* Slightly raised effect */
+            animation: fadeIn 1s ease-out; /* Fade-in effect */
         }
 
+        /* Hover effect to raise the container */
         .container:hover {
             transform: translateY(0);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
         }
 
         /* Animation for smooth fade-in */
@@ -64,8 +65,8 @@
             font-family: 'Source Code Pro', monospace;
             margin-bottom: 30px;
             color: #2E3A59;
-            text-transform: uppercase;
             letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         h3 {
@@ -85,7 +86,7 @@
             left: 0;
             width: 100%;
             height: 3px;
-            background: linear-gradient(90deg, #4A90E2, #A2C0E8); /* Dynamic blue gradient underline */
+            background: linear-gradient(90deg, #4A90E2, #A2C0E8);
             opacity: 0.6;
             animation: slideIn 1.5s ease-in-out infinite alternate;
         }
@@ -96,10 +97,10 @@
             font-size: 16px;
             margin: 10px 0;
             width: 80%;
-            max-width: 300px;
+            max-width: 280px;
             border: 2px solid #ccc;
             border-radius: 8px;
-            background-color: #f4f4f4;
+            background-color: #f9f9f9;
             transition: all 0.3s ease-in-out;
         }
 
@@ -112,7 +113,7 @@
 
         /* Button styling */
         button {
-            background: linear-gradient(45deg, #4A90E2, #357ABD); /* Dynamic gradient background */
+            background: linear-gradient(45deg, #4A90E2, #357ABD); /* Dynamic blue gradient */
             color: #fff;
             padding: 15px 30px;
             font-size: 16px;
@@ -124,7 +125,7 @@
         }
 
         button:hover {
-            background: linear-gradient(45deg, #357ABD, #4A90E2); /* Reverse gradient on hover */
+            background: linear-gradient(45deg, #357ABD, #4A90E2);
             transform: scale(1.05); /* Slightly enlarge the button */
         }
 
@@ -189,4 +190,64 @@
         <button type="button" onclick="convertCelsiusToFahrenheit()">Convert to Fahrenheit</button>
         <input type="number" id="fahrenheit" placeholder="Enter Fahrenheit">
         <button type="button" onclick="convertFahrenheitToCelsius()">Convert to Celsius</button>
-        <di
+        <div id="resultCelsiusFahrenheit"></div>
+
+        <!-- Meters ↔ Feet Conversion -->
+        <h3>Meters ↔ Feet</h3>
+        <input type="number" id="meters" placeholder="Enter Meters">
+        <button type="button" onclick="convertMetersToFeet()">Convert to Feet</button>
+        <input type="number" id="feet" placeholder="Enter Feet">
+        <button type="button" onclick="convertFeetToMeters()">Convert to Meters</button>
+        <div id="resultMetersFeet"></div>
+
+        <p><a href="index.html">Back to Home Page</a></p>
+    </div>
+
+    <script>
+        // Celsius to Fahrenheit conversion
+        function convertCelsiusToFahrenheit() {
+            let celsius = parseFloat(document.getElementById('celsius').value);
+            if (!isNaN(celsius)) {
+                let fahrenheit = (celsius * 9/5) + 32;
+                document.getElementById('resultCelsiusFahrenheit').innerHTML = `${celsius}°C is ${fahrenheit.toFixed(2)}°F`;
+            } else {
+                document.getElementById('resultCelsiusFahrenheit').innerHTML = "Please enter a valid Celsius value.";
+            }
+        }
+
+        // Fahrenheit to Celsius conversion
+        function convertFahrenheitToCelsius() {
+            let fahrenheit = parseFloat(document.getElementById('fahrenheit').value);
+            if (!isNaN(fahrenheit)) {
+                let celsius = (fahrenheit - 32) * 5/9;
+                document.getElementById('resultCelsiusFahrenheit').innerHTML = `${fahrenheit}°F is ${celsius.toFixed(2)}°C`;
+            } else {
+                document.getElementById('resultCelsiusFahrenheit').innerHTML = "Please enter a valid Fahrenheit value.";
+            }
+        }
+
+        // Meters to Feet conversion
+        function convertMetersToFeet() {
+            let meters = parseFloat(document.getElementById('meters').value);
+            if (!isNaN(meters)) {
+                let feet = meters * 3.28084;
+                document.getElementById('resultMetersFeet').innerHTML = `${meters} meters is ${feet.toFixed(2)} feet`;
+            } else {
+                document.getElementById('resultMetersFeet').innerHTML = "Please enter a valid Meters value.";
+            }
+        }
+
+        // Feet to Meters conversion
+        function convertFeetToMeters() {
+            let feet = parseFloat(document.getElementById('feet').value);
+            if (!isNaN(feet)) {
+                let meters = feet / 3.28084;
+                document.getElementById('resultMetersFeet').innerHTML = `${feet} feet is ${meters.toFixed(2)} meters`;
+            } else {
+                document.getElementById('resultMetersFeet').innerHTML = "Please enter a valid Feet value.";
+            }
+        }
+    </script>
+
+</body>
+</html>
