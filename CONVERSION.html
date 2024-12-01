@@ -1,4 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Conversion Tool</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&family=Roboto:wght@400;500&display=swap" rel="stylesheet"> <!-- Futuristic Fonts -->
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            background: linear-gradient(45deg, #ff6ec7, #7451f8); /* Futuristic gradient background */
+            color: white;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* Container Styling */
+        .container {
+            background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Soft shadow */
+            max-width: 800px;
+            width: 100%;
+            backdrop-filter: blur(8px); /* Frosted glass effect */
+            text-align: center;
+        }
+
+        /* Headings */
+        h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 36px;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 24px;
+            margin: 20px 0;
+        }
+
+        /* Input Fields */
+        input[type="number"] {
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            margin: 10px 0;
+            width: 80%;
+            max-width: 250px;
+            background-color: #333;
+            color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Soft shadow */
+            transition: 0.3s ease-in-out;
+        }
+
+        input[type="number"]:focus {
+            outline: none;
+            background-color: #7451f8; /* Highlight on focus */
+            box-shadow: 0 4px 15px rgba(116, 81, 248, 0.7);
+        }
+
+        /* Buttons */
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #1E90FF; /* Blue button color */
+            border: none;
+            border-radius: 5px;
+            margin: 10px 0;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Soft shadow */
+            transition: 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #7451f8; /* Change color on hover */
+            transform: scale(1.05); /* Slight zoom effect */
+        }
+
+        /* Result Display */
+        #resultCelsiusFahrenheit, #resultMetersFeet {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* Link Back to Home Page */
+        p a {
+            color: #1E90FF;
+            text-decoration: none;
+            font-size: 18px;
+            transition: 0.3s ease-in-out;
+        }
+
+        p a:hover {
+            color: #7451f8;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 28px;
+            }
+
+            h3 {
+                font-size: 20px;
+            }
+
+            input[type="number"], button {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
 <body>
+
     <div class="container">
         <h2>Conversion Tool</h2>
 
@@ -20,7 +148,6 @@
         <div id="resultMetersFeet"></div>
 
         <p><a href="index.html">Back to Home Page</a></p>
-
     </div>
 
     <script>
@@ -68,4 +195,6 @@
             }
         }
     </script>
+
 </body>
+</html>
