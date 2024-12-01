@@ -27,6 +27,10 @@
             background-color: #111;
             padding-top: 20px;
             overflow: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Center links vertically */
+            align-items: center; /* Center links horizontally */
         }
 
         .w3-bar a {
@@ -34,6 +38,8 @@
             padding: 10px 15px;
             text-decoration: none;
             display: block;
+            text-align: center;
+            width: 100%; /* Ensure links take up full width of navbar */
         }
 
         .w3-bar a:hover {
