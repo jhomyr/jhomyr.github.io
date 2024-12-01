@@ -16,62 +16,65 @@
 
         body {
             font-family: 'Helvetica Neue', Arial, sans-serif;
-            background: #f7f7f8; /* Soft light background */
+            background: url('https://source.unsplash.com/1600x900/?space,stars,galaxy') no-repeat center center fixed;
+            background-size: cover;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            overflow: hidden;
             padding: 20px;
+            overflow: hidden;
+            color: #fff;
             transition: background-color 0.3s ease-in-out;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        /* Fade-in effect for the background */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
 
         .container {
-            background: linear-gradient(145deg, #6e7bff, #4a56e2); /* Gradient background */
-            border-radius: 15px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); /* Floating shadow effect */
+            background: rgba(0, 0, 0, 0.6); /* Semi-transparent black for space effect */
+            border-radius: 20px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
             padding: 40px;
             width: 100%;
             max-width: 600px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
             transform: translateY(-30px); /* Floating effect */
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            animation: fadeIn 1s ease-out;
-        }
-
-        /* Animation for fade-in effect */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         /* Hover effect for the floating card */
         .container:hover {
             transform: translateY(0);
-            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
         }
 
         h2 {
-            font-size: 34px;
-            color: white;
+            font-size: 36px;
+            color: #fff;
             font-weight: 700;
             margin-bottom: 40px;
             letter-spacing: 1px;
             text-transform: uppercase;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
         }
 
         h3 {
             font-size: 24px;
-            color: white;
+            color: #fff;
             margin-bottom: 20px;
             font-weight: 500;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
         }
 
         /* Input field styling */
@@ -83,8 +86,8 @@
             max-width: 350px;
             border: none;
             border-radius: 12px;
-            background-color: #ffffff;
-            color: #333;
+            background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+            color: #fff;
             transition: all 0.3s ease-in-out;
             margin-bottom: 20px;
         }
@@ -92,14 +95,14 @@
         input[type="number"]:focus {
             outline: none;
             border-color: #6e7bff;
-            background-color: #f1f4fd;
-            box-shadow: 0 0 8px rgba(110, 123, 255, 0.4);
+            background-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 10px rgba(110, 123, 255, 0.4);
         }
 
-        /* Enhanced Button styling with #003459 */
+        /* Enhanced Button styling */
         button {
             background-color: #003459; /* Dark blue background */
-            color: white;
+            color: #fff;
             padding: 16px 32px;
             font-size: 18px;
             font-weight: bold;
@@ -115,7 +118,7 @@
         button:hover {
             background-color: #002c42; /* Darker blue on hover */
             transform: scale(1.05); /* Zoom effect */
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Subtle shadow on hover */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Subtle shadow on hover */
         }
 
         button:active {
@@ -129,6 +132,7 @@
             font-weight: 500;
             color: #ffffff;
             margin-top: 20px;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
         }
 
         /* Link back to the home page */
@@ -138,6 +142,7 @@
             font-size: 16px;
             font-weight: 500;
             transition: color 0.3s ease;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
         }
 
         p a:hover {
