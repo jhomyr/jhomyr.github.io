@@ -7,7 +7,7 @@
 
     <!-- Font Style -->
     <style>
-        /* Global Reset */
+        
         * {
             margin: 0;
             padding: 0;
@@ -15,8 +15,8 @@
         }
 
         body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            background: #f7f7f8; /* Soft light background */
+            font-family: -apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background: #f2f2f7; 
             display: flex;
             justify-content: center;
             align-items: center;
@@ -25,33 +25,25 @@
             padding: 20px;
         }
 
+        
         .container {
-            background: #ffffff; /* Light background for the calculator */
+            background: #ffffff;
             border-radius: 20px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1); /* Soft shadow for floating effect */
             padding: 40px;
             width: 100%;
-            max-width: 400px;
+            max-width: 600px;
             text-align: center;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr); /* Grid layout for buttons */
-            gap: 15px;
-            grid-template-areas: 
-                "title title title title"
-                "input input input input"
-                "btn1 btn2 btn3 btn4"
-                "btn5 btn6 btn7 btn8"
-                "btn9 btn10 btn11 btn12"
-                "btn13 btn14 btn15 btn16";
-            transform: translateY(-30px); /* Floating effect */
+            transform: translateY(-20px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             animation: fadeIn 1s ease-out;
         }
 
-        /* Fade-in effect */
+       
         @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(-30px);
+                transform: translateY(-20px);
             }
             to {
                 opacity: 1;
@@ -59,89 +51,78 @@
             }
         }
 
+        /* Hover effect for the floating card */
+        .container:hover {
+            transform: translateY(0);
+            box-shadow: 0 24px 48px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+        }
+
         h2 {
-            grid-area: title;
-            font-size: 36px;
+            font-size: 30px;
             color: #333;
-            font-weight: 700;
-            margin-bottom: 20px;
+            font-weight: 600;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
             text-transform: uppercase;
         }
 
-        /* Input Field Styling */
-        input[type="number"] {
-            grid-area: input;
-            padding: 20px;
-            font-size: 20px;
-            width: 100%;
-            border: none;
-            border-radius: 12px;
-            background-color: #f1f1f1;
+        h3 {
+            font-size: 22px;
             color: #333;
-            text-align: center;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        /* Input field styling */
+        input[type="number"] {
+            padding: 16px;
+            font-size: 18px;
+            margin: 10px 0;
+            width: 100%;
+            max-width: 350px;
+            border: 2px solid #d1d1d6;
+            border-radius: 10px;
+            background-color: #f7f7f7;
+            transition: all 0.3s ease-in-out;
+            margin-bottom: 20px;
         }
 
         input[type="number"]:focus {
             outline: none;
-            background-color: #ffffff;
-            box-shadow: 0 0 10px rgba(0, 100, 255, 0.3);
+            border-color: #007aff; /* Apple’s blue color when focused */
+            background-color: #e1f0ff;
+            box-shadow: 0 0 10px rgba(0, 122, 255, 0.2);
         }
 
-        /* Button Styling */
+        
         button {
-            padding: 20px;
-            font-size: 18px;
-            font-weight: bold;
-            border: none;
-            border-radius: 10px;
-            background-color: #003459; /* Dark blue */
+            background-color: #007aff; /* Apple blue color */
             color: white;
+            padding: 14px 28px;
+            font-size: 16px;
+            border: none;
+            border-radius: 12px;
             cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin: 20px 0;
+            transition: transform 0.2s ease, background-color 0.3s ease;
         }
 
         button:hover {
-            background-color: #002c42; /* Darker blue on hover */
-            transform: scale(1.05); /* Button zoom effect */
+            background-color: #0051d4; /* Darker blue when hovered */
+            transform: scale(1.05); /* Slight zoom effect on hover */
         }
 
-        button:active {
-            background-color: #001f2a; /* Even darker blue when clicked */
-            transform: scale(0.98); /* Shrink effect on click */
-        }
-
-        /* Specific Button Grid */
-        .btn1 { grid-area: btn1; }
-        .btn2 { grid-area: btn2; }
-        .btn3 { grid-area: btn3; }
-        .btn4 { grid-area: btn4; }
-        .btn5 { grid-area: btn5; }
-        .btn6 { grid-area: btn6; }
-        .btn7 { grid-area: btn7; }
-        .btn8 { grid-area: btn8; }
-        .btn9 { grid-area: btn9; }
-        .btn10 { grid-area: btn10; }
-        .btn11 { grid-area: btn11; }
-        .btn12 { grid-area: btn12; }
-        .btn13 { grid-area: btn13; }
-        .btn14 { grid-area: btn14; }
-        .btn15 { grid-area: btn15; }
-        .btn16 { grid-area: btn16; }
-
-        /* Result Display */
-        #result {
+        
+        #resultCelsiusFahrenheit, #resultMetersFeet {
             font-size: 18px;
             font-weight: 500;
-            color: #333;
-            grid-area: result;
-            margin-top: 10px;
-            text-align: center;
+            color: #007aff;
+            margin-top: 20px;
         }
 
-        /* Link back to the home page */
+        
         p a {
-            color: #333;
+            color: #007aff;
             text-decoration: none;
             font-size: 16px;
             font-weight: 500;
@@ -149,10 +130,10 @@
         }
 
         p a:hover {
-            color: #6e7bff;
+            color: #0051d4; /* Darker blue on hover */
         }
 
-        /* Mobile Optimization */
+       
         @media (max-width: 600px) {
             .container {
                 padding: 20px;
@@ -160,7 +141,7 @@
             }
 
             h2 {
-                font-size: 28px;
+                font-size: 24px;
             }
 
             input[type="number"], button {
@@ -180,64 +161,66 @@
         <h2>Conversion Tool</h2>
 
         <!-- Celsius ↔ Fahrenheit Conversion -->
+        <h3>Celsius ↔ Fahrenheit</h3>
         <input type="number" id="celsius" placeholder="Enter Celsius">
-        <button class="btn1" onclick="convertCelsiusToFahrenheit()">C° → F°</button>
+        <button type="button" onclick="convertCelsiusToFahrenheit()">Convert to Fahrenheit</button>
         <input type="number" id="fahrenheit" placeholder="Enter Fahrenheit">
-        <button class="btn2" onclick="convertFahrenheitToCelsius()">F° → C°</button>
+        <button type="button" onclick="convertFahrenheitToCelsius()">Convert to Celsius</button>
+        <div id="resultCelsiusFahrenheit"></div>
 
         <!-- Meters ↔ Feet Conversion -->
+        <h3>Meters ↔ Feet</h3>
         <input type="number" id="meters" placeholder="Enter Meters">
-        <button class="btn3" onclick="convertMetersToFeet()">Meters → Feet</button>
+        <button type="button" onclick="convertMetersToFeet()">Convert to Feet</button>
         <input type="number" id="feet" placeholder="Enter Feet">
-        <button class="btn4" onclick="convertFeetToMeters()">Feet → Meters</button>
-
-        <div id="result"></div>
+        <button type="button" onclick="convertFeetToMeters()">Convert to Meters</button>
+        <div id="resultMetersFeet"></div>
 
         <p><a href="index.html">Back to Home Page</a></p>
     </div>
 
     <script>
-        // Celsius to Fahrenheit conversion
+        
         function convertCelsiusToFahrenheit() {
             let celsius = parseFloat(document.getElementById('celsius').value);
             if (!isNaN(celsius)) {
                 let fahrenheit = (celsius * 9/5) + 32;
-                document.getElementById('result').innerHTML = `${celsius}°C is ${fahrenheit.toFixed(2)}°F`;
+                document.getElementById('resultCelsiusFahrenheit').innerHTML = `${celsius}°C is ${fahrenheit.toFixed(2)}°F`;
             } else {
-                document.getElementById('result').innerHTML = "Please enter a valid Celsius value.";
+                document.getElementById('resultCelsiusFahrenheit').innerHTML = "Please enter a valid Celsius value.";
             }
         }
 
-        // Fahrenheit to Celsius conversion
+        
         function convertFahrenheitToCelsius() {
             let fahrenheit = parseFloat(document.getElementById('fahrenheit').value);
             if (!isNaN(fahrenheit)) {
                 let celsius = (fahrenheit - 32) * 5/9;
-                document.getElementById('result').innerHTML = `${fahrenheit}°F is ${celsius.toFixed(2)}°C`;
+                document.getElementById('resultCelsiusFahrenheit').innerHTML = `${fahrenheit}°F is ${celsius.toFixed(2)}°C`;
             } else {
-                document.getElementById('result').innerHTML = "Please enter a valid Fahrenheit value.";
+                document.getElementById('resultCelsiusFahrenheit').innerHTML = "Please enter a valid Fahrenheit value.";
             }
         }
 
-        // Meters to Feet conversion
+        
         function convertMetersToFeet() {
             let meters = parseFloat(document.getElementById('meters').value);
             if (!isNaN(meters)) {
                 let feet = meters * 3.28084;
-                document.getElementById('result').innerHTML = `${meters} meters is ${feet.toFixed(2)} feet`;
+                document.getElementById('resultMetersFeet').innerHTML = `${meters} meters is ${feet.toFixed(2)} feet`;
             } else {
-                document.getElementById('result').innerHTML = "Please enter a valid Meters value.";
+                document.getElementById('resultMetersFeet').innerHTML = "Please enter a valid Meters value.";
             }
         }
 
-        // Feet to Meters conversion
+        
         function convertFeetToMeters() {
             let feet = parseFloat(document.getElementById('feet').value);
             if (!isNaN(feet)) {
                 let meters = feet / 3.28084;
-                document.getElementById('result').innerHTML = `${feet} feet is ${meters.toFixed(2)} meters`;
+                document.getElementById('resultMetersFeet').innerHTML = `${feet} feet is ${meters.toFixed(2)} meters`;
             } else {
-                document.getElementById('result').innerHTML = "Please enter a valid Feet value.";
+                document.getElementById('resultMetersFeet').innerHTML = "Please enter a valid Feet value.";
             }
         }
     </script>
