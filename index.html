@@ -1,123 +1,229 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Introduction to Computing Website</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&family=Roboto:wght@400;500&display=swap" rel="stylesheet"> <!-- Futuristic Fonts -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Conversion Tool</title>
+
+    <!-- Font Style -->
     <style>
-        /* General Body Styles */
-        body {
-            font-family: 'Roboto', sans-serif;
+        /* Global Reset */
+        * {
             margin: 0;
-            background: linear-gradient(45deg, #ff6ec7, #7451f8); /* Futuristic gradient background */
-            color: white;
-            height: 100vh;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        /* Navbar Styles */
-        .w3-bar {
-            width: 100%;
-            padding: 20px 0;
-            background: rgba(0, 0, 0, 0.5); /* Semi-transparent navbar */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background: #f2f2f7; /* Light background with a touch of Apple’s greyish tone */
             display: flex;
             justify-content: center;
             align-items: center;
-            position: absolute;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(10px); /* Frosted glass effect */
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
+            height: 100vh;
+            overflow: hidden;
+            padding: 20px;
         }
 
-        .w3-bar a {
-            color: white;
-            padding: 15px 25px;
-            text-decoration: none;
-            font-size: 16px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-family: 'Orbitron', sans-serif; /* Futuristic font */
-            transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
-        }
-
-        .w3-bar a:hover {
-            background-color: #7451f8;
-            transform: scale(1.1); /* Slight zoom effect on hover */
-        }
-
-        /* Content Section */
-        .content {
-            padding-top: 80px;
+        /* Main container styling for floating effect */
+        .container {
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1); /* Soft shadow for floating effect */
+            padding: 40px;
+            width: 100%;
+            max-width: 600px;
             text-align: center;
-            width: 90%;
-            max-width: 800px;
-            animation: fadeIn 1s ease-out; /* Smooth fade-in animation */
+            transform: translateY(-20px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeIn 1s ease-out;
         }
 
-        .content h1 {
-            font-size: 48px;
-            font-family: 'Orbitron', sans-serif;
-            letter-spacing: 2px;
-            margin-bottom: 20px;
-        }
-
-        .content p {
-            font-size: 18px;
-            line-height: 1.6;
-            letter-spacing: 0.5px;
-            color: #f0f0f0;
-            font-family: 'Roboto', sans-serif;
-        }
-
-        /* Animation for smooth fade-in */
+        /* Animation for fade-in effect */
         @keyframes fadeIn {
             from {
                 opacity: 0;
+                transform: translateY(-20px);
             }
             to {
                 opacity: 1;
+                transform: translateY(0);
             }
         }
 
-        /* Responsive Design */
-        @media screen and (max-width: 600px) {
-            .w3-bar a {
-                font-size: 14px;
-                padding: 10px 15px;
+        /* Hover effect for the floating card */
+        .container:hover {
+            transform: translateY(0);
+            box-shadow: 0 24px 48px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+        }
+
+        h2 {
+            font-size: 30px;
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        h3 {
+            font-size: 22px;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        /* Input field styling */
+        input[type="number"] {
+            padding: 16px;
+            font-size: 18px;
+            margin: 10px 0;
+            width: 100%;
+            max-width: 350px;
+            border: 2px solid #d1d1d6;
+            border-radius: 10px;
+            background-color: #f7f7f7;
+            transition: all 0.3s ease-in-out;
+            margin-bottom: 20px;
+        }
+
+        input[type="number"]:focus {
+            outline: none;
+            border-color: #007aff; /* Apple’s blue color when focused */
+            background-color: #e1f0ff;
+            box-shadow: 0 0 10px rgba(0, 122, 255, 0.2);
+        }
+
+        /* Button styling */
+        button {
+            background-color: #007aff; /* Apple blue color */
+            color: white;
+            padding: 14px 28px;
+            font-size: 16px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            margin: 20px 0;
+            transition: transform 0.2s ease, background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0051d4; /* Darker blue when hovered */
+            transform: scale(1.05); /* Slight zoom effect on hover */
+        }
+
+        /* Result Display */
+        #resultCelsiusFahrenheit, #resultMetersFeet {
+            font-size: 18px;
+            font-weight: 500;
+            color: #007aff;
+            margin-top: 20px;
+        }
+
+        /* Link back to the home page */
+        p a {
+            color: #007aff;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        p a:hover {
+            color: #0051d4; /* Darker blue on hover */
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+                margin: 10px;
             }
 
-            .content h1 {
-                font-size: 36px;
+            h2 {
+                font-size: 24px;
             }
 
-            .content p {
-                font-size: 16px;
+            input[type="number"], button {
+                width: 90%;
+                max-width: 100%;
+            }
+
+            button {
+                width: 100%;
             }
         }
     </style>
 </head>
 <body>
 
-<!-- Navbar -->
-<div class="w3-bar">
-    <a href="#" class="w3-bar-item w3-button">HOME</a>
-    <a href="CONVERSION.html" class="w3-bar-item w3-button">Conversion</a>
-    <a href="INCOMETAX.html" class="w3-bar-item w3-button">Income Tax</a>
-    <a href="FACTORIAL.html" class="w3-bar-item w3-button">Factorial</a>
-    <a href="SIMPLEPAYROLL.html" class="w3-bar-item w3-button">Simple Payroll</a>
-</div>
+    <div class="container">
+        <h2>Conversion Tool</h2>
 
-<!-- Main Content Section -->
-<div class="content">
-    <h1>Welcome to My Futuristic Website</h1>
-    <p>Good day sir, I hope you enjoy my website and thank you for teaching us this semester. We will miss you. God bless. Personal website powered by GitHub for publishing programs.</p>
-</div>
+        <!-- Celsius ↔ Fahrenheit Conversion -->
+        <h3>Celsius ↔ Fahrenheit</h3>
+        <input type="number" id="celsius" placeholder="Enter Celsius">
+        <button type="button" onclick="convertCelsiusToFahrenheit()">Convert to Fahrenheit</button>
+        <input type="number" id="fahrenheit" placeholder="Enter Fahrenheit">
+        <button type="button" onclick="convertFahrenheitToCelsius()">Convert to Celsius</button>
+        <div id="resultCelsiusFahrenheit"></div>
+
+        <!-- Meters ↔ Feet Conversion -->
+        <h3>Meters ↔ Feet</h3>
+        <input type="number" id="meters" placeholder="Enter Meters">
+        <button type="button" onclick="convertMetersToFeet()">Convert to Feet</button>
+        <input type="number" id="feet" placeholder="Enter Feet">
+        <button type="button" onclick="convertFeetToMeters()">Convert to Meters</button>
+        <div id="resultMetersFeet"></div>
+
+        <p><a href="index.html">Back to Home Page</a></p>
+    </div>
+
+    <script>
+        // Celsius to Fahrenheit conversion
+        function convertCelsiusToFahrenheit() {
+            let celsius = parseFloat(document.getElementById('celsius').value);
+            if (!isNaN(celsius)) {
+                let fahrenheit = (celsius * 9/5) + 32;
+                document.getElementById('resultCelsiusFahrenheit').innerHTML = `${celsius}°C is ${fahrenheit.toFixed(2)}°F`;
+            } else {
+                document.getElementById('resultCelsiusFahrenheit').innerHTML = "Please enter a valid Celsius value.";
+            }
+        }
+
+        // Fahrenheit to Celsius conversion
+        function convertFahrenheitToCelsius() {
+            let fahrenheit = parseFloat(document.getElementById('fahrenheit').value);
+            if (!isNaN(fahrenheit)) {
+                let celsius = (fahrenheit - 32) * 5/9;
+                document.getElementById('resultCelsiusFahrenheit').innerHTML = `${fahrenheit}°F is ${celsius.toFixed(2)}°C`;
+            } else {
+                document.getElementById('resultCelsiusFahrenheit').innerHTML = "Please enter a valid Fahrenheit value.";
+            }
+        }
+
+        // Meters to Feet conversion
+        function convertMetersToFeet() {
+            let meters = parseFloat(document.getElementById('meters').value);
+            if (!isNaN(meters)) {
+                let feet = meters * 3.28084;
+                document.getElementById('resultMetersFeet').innerHTML = `${meters} meters is ${feet.toFixed(2)} feet`;
+            } else {
+                document.getElementById('resultMetersFeet').innerHTML = "Please enter a valid Meters value.";
+            }
+        }
+
+        // Feet to Meters conversion
+        function convertFeetToMeters() {
+            let feet = parseFloat(document.getElementById('feet').value);
+            if (!isNaN(feet)) {
+                let meters = feet / 3.28084;
+                document.getElementById('resultMetersFeet').innerHTML = `${feet} feet is ${meters.toFixed(2)} meters`;
+            } else {
+                document.getElementById('resultMetersFeet').innerHTML = "Please enter a valid Feet value.";
+            }
+        }
+    </script>
 
 </body>
 </html>
