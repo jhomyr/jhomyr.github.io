@@ -18,13 +18,14 @@
             flex-direction: column;
             justify-content: flex-start;
             align-items: center;
+            padding: 0 20px;
         }
 
         /* Navbar Styles */
         .w3-bar {
             width: 100%;
             padding: 20px 0;
-            background: rgba(0, 0, 0, 0.5); /* Semi-transparent navbar */
+            background: rgba(0, 0, 0, 0.6); /* Slightly darker for better contrast */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -44,6 +45,8 @@
             letter-spacing: 1px;
             font-family: 'Orbitron', sans-serif; /* Futuristic font */
             transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+            border-radius: 4px;
+            margin: 0 10px;
         }
 
         .w3-bar a:hover {
@@ -53,10 +56,11 @@
 
         /* Content Section */
         .content {
-            padding-top: 80px;
+            padding-top: 120px;
             text-align: center;
-            width: 90%;
-            max-width: 800px;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
             animation: fadeIn 1s ease-out; /* Smooth fade-in animation */
         }
 
@@ -65,6 +69,7 @@
             font-family: 'Orbitron', sans-serif;
             letter-spacing: 2px;
             margin-bottom: 20px;
+            text-transform: uppercase;
         }
 
         .content p {
@@ -73,6 +78,24 @@
             letter-spacing: 0.5px;
             color: #f0f0f0;
             font-family: 'Roboto', sans-serif;
+        }
+
+        /* Buttons Styling */
+        .cta-button {
+            background-color: #7451f8;
+            color: white;
+            font-size: 18px;
+            padding: 14px 28px;
+            text-decoration: none;
+            border-radius: 8px;
+            margin-top: 40px;
+            display: inline-block;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #ff6ec7;
+            transform: scale(1.1);
         }
 
         /* Animation for smooth fade-in */
@@ -99,6 +122,11 @@
             .content p {
                 font-size: 16px;
             }
+
+            .cta-button {
+                font-size: 16px;
+                padding: 12px 24px;
+            }
         }
     </style>
 </head>
@@ -117,6 +145,7 @@
 <div class="content">
     <h1>Welcome to My Futuristic Website</h1>
     <p>Good day sir, I hope you enjoy my website and thank you for teaching us this semester. We will miss you. God bless. Personal website powered by GitHub for publishing programs.</p>
+    <a href="CONVERSION.html" class="cta-button">Get Started with Conversion Tools</a> <!-- Call to Action button -->
 </div>
 
 </body>
