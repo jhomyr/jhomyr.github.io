@@ -16,133 +16,136 @@
 
         body {
             font-family: 'Helvetica Neue', Arial, sans-serif;
-            background: url('https://source.unsplash.com/1600x900/?space,stars,galaxy') no-repeat center center fixed;
-            background-size: cover;
+            background: #f7f7f8; /* Soft light background */
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            padding: 20px;
             overflow: hidden;
-            color: #fff;
-            transition: background-color 0.3s ease-in-out;
-            animation: fadeIn 1.5s ease-out;
-        }
-
-        /* Fade-in effect for the background */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+            padding: 20px;
         }
 
         .container {
-            background: rgba(0, 0, 0, 0.6); /* Semi-transparent black for space effect */
+            background: #ffffff; /* Light background for the calculator */
             border-radius: 20px;
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
             padding: 40px;
             width: 100%;
-            max-width: 600px;
+            max-width: 400px;
             text-align: center;
-            position: relative;
-            overflow: hidden;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* Grid layout for buttons */
+            gap: 15px;
+            grid-template-areas: 
+                "title title title title"
+                "input input input input"
+                "btn1 btn2 btn3 btn4"
+                "btn5 btn6 btn7 btn8"
+                "btn9 btn10 btn11 btn12"
+                "btn13 btn14 btn15 btn16";
             transform: translateY(-30px); /* Floating effect */
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeIn 1s ease-out;
         }
 
-        /* Hover effect for the floating card */
-        .container:hover {
-            transform: translateY(0);
-            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
+        /* Fade-in effect */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         h2 {
+            grid-area: title;
             font-size: 36px;
-            color: #fff;
+            color: #333;
             font-weight: 700;
-            margin-bottom: 40px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-        }
-
-        h3 {
-            font-size: 24px;
-            color: #fff;
             margin-bottom: 20px;
-            font-weight: 500;
-            text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+            text-transform: uppercase;
         }
 
-        /* Input field styling */
+        /* Input Field Styling */
         input[type="number"] {
-            padding: 15px;
-            font-size: 18px;
-            margin: 12px 0;
-            width: 80%;
-            max-width: 350px;
+            grid-area: input;
+            padding: 20px;
+            font-size: 20px;
+            width: 100%;
             border: none;
             border-radius: 12px;
-            background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
-            color: #fff;
-            transition: all 0.3s ease-in-out;
-            margin-bottom: 20px;
+            background-color: #f1f1f1;
+            color: #333;
+            text-align: center;
+            margin-bottom: 10px;
         }
 
         input[type="number"]:focus {
             outline: none;
-            border-color: #6e7bff;
-            background-color: rgba(255, 255, 255, 0.3);
-            box-shadow: 0 0 10px rgba(110, 123, 255, 0.4);
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 100, 255, 0.3);
         }
 
-        /* Enhanced Button styling */
+        /* Button Styling */
         button {
-            background-color: #003459; /* Dark blue background */
-            color: #fff;
-            padding: 16px 32px;
+            padding: 20px;
             font-size: 18px;
             font-weight: bold;
             border: none;
-            border-radius: 12px;
+            border-radius: 10px;
+            background-color: #003459; /* Dark blue */
+            color: white;
             cursor: pointer;
-            margin: 20px 0;
-            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-            width: 80%;
-            max-width: 350px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
         button:hover {
             background-color: #002c42; /* Darker blue on hover */
-            transform: scale(1.05); /* Zoom effect */
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Subtle shadow on hover */
+            transform: scale(1.05); /* Button zoom effect */
         }
 
         button:active {
             background-color: #001f2a; /* Even darker blue when clicked */
-            transform: scale(0.98); /* Slight shrink effect on click */
+            transform: scale(0.98); /* Shrink effect on click */
         }
 
+        /* Specific Button Grid */
+        .btn1 { grid-area: btn1; }
+        .btn2 { grid-area: btn2; }
+        .btn3 { grid-area: btn3; }
+        .btn4 { grid-area: btn4; }
+        .btn5 { grid-area: btn5; }
+        .btn6 { grid-area: btn6; }
+        .btn7 { grid-area: btn7; }
+        .btn8 { grid-area: btn8; }
+        .btn9 { grid-area: btn9; }
+        .btn10 { grid-area: btn10; }
+        .btn11 { grid-area: btn11; }
+        .btn12 { grid-area: btn12; }
+        .btn13 { grid-area: btn13; }
+        .btn14 { grid-area: btn14; }
+        .btn15 { grid-area: btn15; }
+        .btn16 { grid-area: btn16; }
+
         /* Result Display */
-        #resultCelsiusFahrenheit, #resultMetersFeet {
+        #result {
             font-size: 18px;
             font-weight: 500;
-            color: #ffffff;
-            margin-top: 20px;
-            text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+            color: #333;
+            grid-area: result;
+            margin-top: 10px;
+            text-align: center;
         }
 
         /* Link back to the home page */
         p a {
-            color: #ffffff;
+            color: #333;
             text-decoration: none;
             font-size: 16px;
             font-weight: 500;
             transition: color 0.3s ease;
-            text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
         }
 
         p a:hover {
@@ -177,20 +180,18 @@
         <h2>Conversion Tool</h2>
 
         <!-- Celsius ↔ Fahrenheit Conversion -->
-        <h3>Celsius ↔ Fahrenheit</h3>
         <input type="number" id="celsius" placeholder="Enter Celsius">
-        <button type="button" onclick="convertCelsiusToFahrenheit()">Convert to Fahrenheit</button>
+        <button class="btn1" onclick="convertCelsiusToFahrenheit()">C° → F°</button>
         <input type="number" id="fahrenheit" placeholder="Enter Fahrenheit">
-        <button type="button" onclick="convertFahrenheitToCelsius()">Convert to Celsius</button>
-        <div id="resultCelsiusFahrenheit"></div>
+        <button class="btn2" onclick="convertFahrenheitToCelsius()">F° → C°</button>
 
         <!-- Meters ↔ Feet Conversion -->
-        <h3>Meters ↔ Feet</h3>
         <input type="number" id="meters" placeholder="Enter Meters">
-        <button type="button" onclick="convertMetersToFeet()">Convert to Feet</button>
+        <button class="btn3" onclick="convertMetersToFeet()">Meters → Feet</button>
         <input type="number" id="feet" placeholder="Enter Feet">
-        <button type="button" onclick="convertFeetToMeters()">Convert to Meters</button>
-        <div id="resultMetersFeet"></div>
+        <button class="btn4" onclick="convertFeetToMeters()">Feet → Meters</button>
+
+        <div id="result"></div>
 
         <p><a href="index.html">Back to Home Page</a></p>
     </div>
@@ -201,9 +202,9 @@
             let celsius = parseFloat(document.getElementById('celsius').value);
             if (!isNaN(celsius)) {
                 let fahrenheit = (celsius * 9/5) + 32;
-                document.getElementById('resultCelsiusFahrenheit').innerHTML = `${celsius}°C is ${fahrenheit.toFixed(2)}°F`;
+                document.getElementById('result').innerHTML = `${celsius}°C is ${fahrenheit.toFixed(2)}°F`;
             } else {
-                document.getElementById('resultCelsiusFahrenheit').innerHTML = "Please enter a valid Celsius value.";
+                document.getElementById('result').innerHTML = "Please enter a valid Celsius value.";
             }
         }
 
@@ -212,9 +213,9 @@
             let fahrenheit = parseFloat(document.getElementById('fahrenheit').value);
             if (!isNaN(fahrenheit)) {
                 let celsius = (fahrenheit - 32) * 5/9;
-                document.getElementById('resultCelsiusFahrenheit').innerHTML = `${fahrenheit}°F is ${celsius.toFixed(2)}°C`;
+                document.getElementById('result').innerHTML = `${fahrenheit}°F is ${celsius.toFixed(2)}°C`;
             } else {
-                document.getElementById('resultCelsiusFahrenheit').innerHTML = "Please enter a valid Fahrenheit value.";
+                document.getElementById('result').innerHTML = "Please enter a valid Fahrenheit value.";
             }
         }
 
@@ -223,9 +224,9 @@
             let meters = parseFloat(document.getElementById('meters').value);
             if (!isNaN(meters)) {
                 let feet = meters * 3.28084;
-                document.getElementById('resultMetersFeet').innerHTML = `${meters} meters is ${feet.toFixed(2)} feet`;
+                document.getElementById('result').innerHTML = `${meters} meters is ${feet.toFixed(2)} feet`;
             } else {
-                document.getElementById('resultMetersFeet').innerHTML = "Please enter a valid Meters value.";
+                document.getElementById('result').innerHTML = "Please enter a valid Meters value.";
             }
         }
 
@@ -234,9 +235,9 @@
             let feet = parseFloat(document.getElementById('feet').value);
             if (!isNaN(feet)) {
                 let meters = feet / 3.28084;
-                document.getElementById('resultMetersFeet').innerHTML = `${feet} feet is ${meters.toFixed(2)} meters`;
+                document.getElementById('result').innerHTML = `${feet} feet is ${meters.toFixed(2)} meters`;
             } else {
-                document.getElementById('resultMetersFeet').innerHTML = "Please enter a valid Feet value.";
+                document.getElementById('result').innerHTML = "Please enter a valid Feet value.";
             }
         }
     </script>
